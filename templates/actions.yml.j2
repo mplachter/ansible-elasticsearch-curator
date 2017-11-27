@@ -42,10 +42,13 @@ actions:
 {#- FILTERS #}
 {% if key == 'filters' %}
     filters:
-{% for filter in value %}
-      -
-{% for k,v in filter.iteritems() %}
+{% for filters in value %}
+      - filtertype: {{filters['filtertype']}}
+{% for k,v in filters.iteritems() %}
+{% if k == 'filtertype' %}
+{% else %}
         {{ k }}: {{ v }}
+{% endif %}
 {% endfor %}
 {% endfor %}
 {% endif %}
@@ -55,10 +58,13 @@ actions:
 {% if key == 'add' %}
     add:
       filters:
-{% for filter in value.filters %}
-        -
-{% for k,v in filter.iteritems() %}
-          {{ k }}: {{ v }}
+{% for filters in value.filters %}
+      - filtertype: {{filters['filtertype']}}
+{% for k,v in filters.iteritems() %}
+{% if k == 'filtertype' %}
+{% else %}
+        {{ k }}: {{ v }}
+{% endif %}
 {% endfor %}
 {% endfor %}
 {% endif %}
@@ -68,10 +74,13 @@ actions:
 {% if key == 'remove' %}
     remove:
       filters:
-{% for filter in value.filters %}
-        -
-{% for k,v in filter.iteritems() %}
-          {{ k }}: {{ v }}
+{% for filters in value.filters %}
+      - filtertype: {{filters['filtertype']}}
+{% for k,v in filters.iteritems() %}
+{% if k == 'filtertype' %}
+{% else %}
+        {{ k }}: {{ v }}
+{% endif %}
 {% endfor %}
 {% endfor %}
 {% endif -%}

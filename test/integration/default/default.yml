@@ -1,5 +1,7 @@
 ---
-- hosts: test-kitchen
+- name: ES Curator Preqs
+  hosts: test-kitchen
+  become: true
 
   vars:
     java_package_by_os_family:
@@ -8,7 +10,7 @@
     java_package: "{{ java_package_by_os_family[ansible_os_family|lower] }}"
     elasticsearch_cluster_name: kitchenCluster
     elasticsearch_network_host: 0.0.0.0
-    filebeat_prospectors: 
+    filebeat_prospectors:
       - paths: [ "/var/log/*log" ]
     filebeat_outputs:
       logstash:
@@ -44,6 +46,7 @@
 ########   ES Curator  #########
 - name: ES Curator
   hosts: test-kitchen
+  become: true
 
   vars:
     elasticsearch_curator_client_hosts: localhost
@@ -133,5 +136,5 @@
       month:   '*'
 
 
-  roles: 
+  roles:
     - ansible-elasticsearch-curator
