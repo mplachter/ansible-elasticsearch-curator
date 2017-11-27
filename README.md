@@ -1,5 +1,4 @@
-elasticsearch-curator
-=====================
+# elasticsearch-curator
 
 Ansible role to install and configure elasticsearch-curator.
 
@@ -11,7 +10,7 @@ https://www.elastic.co/guide/en/elasticsearch/client/curator/4.2/examples.html
 
 ```
 - hosts: eshost
-
+  become: true
   vars:
     elasticsearch_curator_version: 4.2.6
     elasticsearch_curator_client_hosts: localhost
@@ -53,12 +52,18 @@ https://www.elastic.co/guide/en/elasticsearch/client/curator/4.2/examples.html
 
 ## Testing
 
-To test this role, run
+To test this role, run one of the following tests
+
+* molecule
+```
+molecule test
+```
+
+* test kitchen
 
 ```
 kitchen test
 ```
-
 
 ## Dependencies:
 

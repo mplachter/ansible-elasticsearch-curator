@@ -1,0 +1,5 @@
+- name: ES Curator
+  hosts: all
+  become: true
+  roles:
+    - ansible-role-curator

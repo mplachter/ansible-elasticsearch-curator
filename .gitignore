@@ -1,2 +1,9 @@
 *.swp
 .kitchen
+.vagrant
+roles/
+__pycache__
+.molecule
+*.retry
+.cache
+.vscode

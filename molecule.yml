@@ -1,0 +1,25 @@
+---
+dependency:
+  name: galaxy
+  requirements_file: tests/requirements.yml
+ansible:
+  verbose: False
+  playbook: tests/test.yml
+driver:
+  name: docker
+docker:
+  containers:
+    - name: ansible-role-curator-centos7
+      image: mplachter/docker-centos7-molecule
+      image_version: latest
+      privileged: True
+      cap_add:
+        - SYS_ADMIN
+      volume:
+        - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
+      ansible_groups:
+        - curator
+verifier:
+  name: testinfra
+  options:
+      verbose: true
