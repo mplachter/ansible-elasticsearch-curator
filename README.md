@@ -1,3 +1,4 @@
+[![Ansible Role](https://img.shields.io/ansible/role/22416.svg)](https://galaxy.ansible.com/mplachter/elasticsearch-curator/) [![Build Status](https://travis-ci.org/mplachter/ansible-elasticsearch-curator.svg?branch=master)](https://travis-ci.org/mplachter/ansible-elasticsearch-curator)
 # elasticsearch-curator
 
 Ansible role to install and configure elasticsearch-curator.
